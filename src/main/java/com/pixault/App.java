@@ -1,9 +1,12 @@
 package com.pixault;
 
+import java.time.LocalDateTime;
 import java.util.Scanner;
 import com.pixault.model.User;
+import com.pixault.dao.OTPDAO;
 import com.pixault.dao.UserDAO;
 import com.pixault.util.OTPUtil;
+
 
 public class App {
 
@@ -34,14 +37,21 @@ public class App {
 
         //generate OTP
         String otp=OTPUtil.generateOTP();
+
+        LocalDateTime expiry=LocalDateTime.now().plusMinutes(1);
+
+        OTPDAO otpDao=new OTPDAO();
+        otpDao.saveOTP(email,otp,expiry);
         System.out.println("OTP sent to email : "+otp);
 
         System.out.print("Enter OTP : ");
         String userOTP=sc.nextLine();
 
-        if(!otp.equals(userOTP)){
-            System.out.println("Invalid OTP ");
-            sc.close();
+        if(otpDao.verifyOTP(email, userOTP)){
+            System.out.println("OTP verified");
+        }
+        else{
+            System.out.println("Invalid OTP");
         }
 
         User user = new User(email, password);
