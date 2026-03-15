@@ -1,0 +1,15 @@
+target/
+
+# Local database/runtime files
+*.db
+
+# IDE metadata
+.classpath
+.project
+.settings/
+.vscode/
+
+# OS/editor noise
+*.log
+Thumbs.db
+Desktop.ini
