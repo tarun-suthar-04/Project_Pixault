@@ -8,5 +8,6 @@ public class OTPUtil {
         int otp=1000 + rand.nextInt(9000);
         return String.valueOf(otp);
     }
+   
     
 }
