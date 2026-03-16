@@ -13,3 +13,4 @@ target/
 *.log
 Thumbs.db
 Desktop.ini
+src/main/resources/config.properties
