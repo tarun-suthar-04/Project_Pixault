@@ -3,6 +3,7 @@ package com.pixault;
 import java.time.LocalDateTime;
 import java.util.Scanner;
 import com.pixault.model.User;
+import com.pixault.service.EmailService;
 import com.pixault.dao.OTPDAO;
 import com.pixault.dao.UserDAO;
 import com.pixault.util.OTPUtil;
@@ -21,6 +22,7 @@ public class App {
 
         if(dao.emailExists(email)){
             System.out.println("Email already registered");
+            sc.close();
             return;
 
         }
@@ -33,6 +35,7 @@ public class App {
         if(!password.equals(confirmPassword)){
             System.out.println("Password doesn't match");
             sc.close();
+            return;
         }
 
         //generate OTP
@@ -42,26 +45,28 @@ public class App {
 
         OTPDAO otpDao=new OTPDAO();
         otpDao.saveOTP(email,otp,expiry);
-        System.out.println("OTP sent to email : "+otp);
+
+        EmailService.sendOTP(email, otp);
+
+        System.out.println("OTP sent to your email");
 
         System.out.print("Enter OTP : ");
         String userOTP=sc.nextLine();
 
         if(otpDao.verifyOTP(email, userOTP)){
             System.out.println("OTP verified");
+            User user=new User(email,password);
+            if(dao.registerUser(user)){
+                System.out.println("Registration successful");
+            }
+            else{
+                System.out.println("Registration failed");
+            }
         }
         else{
-            System.out.println("Invalid OTP");
+            System.out.println("Invalid or expired OTP");
         }
 
-        User user = new User(email, password);
-        //registration tetsing
-        if(dao.registerUser(user)){
-        System.out.println("Registration Successful");
-        }
-        else{
-        System.out.println("Registration failed");
-        }
         sc.close();
 
 
