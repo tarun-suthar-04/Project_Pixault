@@ -2,29 +2,22 @@ package com.pixault;
 
 // import java.util.Scanner;
 // import com.pixault.service.AuthService;
-import javax.crypto.SecretKey;
-import com.pixault.security.CryptoUtils;
-import com.pixault.security.KeyDerivation;
+// import javax.crypto.SecretKey;
+// import com.pixault.security.CryptoUtils;
+// import com.pixault.security.KeyDerivation;
+import com.pixault.security.PasswordUtil;
 
 public class App {
 
     public static void main(String[] args) throws Exception {
 
-    //Testing Keyderivation
-    String Password="MyPassword";
-
-    byte[] salt=KeyDerivation.generateSalt();
+    //Testing Argon2 
+    String password="StrongPassword@1234";
+    String hash=PasswordUtil.hashPassword(password);
+    System.out.println("Hash : "+hash);
+    boolean result=PasswordUtil.verifyPassword(password, hash);
+    System.out.println("Match : "+ result);
     
-    SecretKey key=KeyDerivation.derievKey(Password, salt);
-
-    String msg="Secret message";
-
-    byte[] encrypted=CryptoUtils.encrypt(msg.getBytes(),key);
-    byte[] decrypted=CryptoUtils.decrypt(encrypted, key);
-    
-    System.out.println("Original message : "+msg);
-    System.out.println("Encrypted message : "+encrypted);
-    System.out.println("Decrypted message : "+new String(decrypted));
 
 
 
