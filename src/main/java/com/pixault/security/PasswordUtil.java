@@ -1,15 +1,24 @@
 package com.pixault.security;
 
-import org.mindrot.jbcrypt.BCrypt;;
+import de.mkammerer.argon2.Argon2;
+import de.mkammerer.argon2.Argon2Factory;
 
 public class PasswordUtil {
 
-    public static String hashPassword(String Password) {
-        return BCrypt.hashpw(Password, BCrypt.gensalt());
+    private static final Argon2 argon2=Argon2Factory.create();
+
+    //Hash Password
+    public static String hashPassword(String password){
+        return argon2.hash(
+                        3,      //iteration
+                        65536,  //memory(KB)=64MB
+                        1,      //paralellism
+                        password.toCharArray());
     }
 
-    public static boolean verifyPassword(String password, String hashedPassword) {
-        return BCrypt.checkpw(password, hashedPassword);
+    //verify password
+    public static boolean verifyPassword(String password , String hash){
+        return argon2.verify(hash, password.toCharArray());
     }
 
 }
