@@ -4,21 +4,26 @@ package com.pixault;
 // import com.pixault.service.AuthService;
 import javax.crypto.SecretKey;
 import com.pixault.security.CryptoUtils;
+import com.pixault.security.KeyDerivation;
 
 public class App {
 
     public static void main(String[] args) throws Exception {
 
-    //Testing CryptoUtils
-    String msg="Hello PIXAULT";
+    //Testing Keyderivation
+    String Password="MyPassword";
 
-    SecretKey key=CryptoUtils.generateKey();
+    byte[] salt=KeyDerivation.generateSalt();
+    
+    SecretKey key=KeyDerivation.derievKey(Password, salt);
 
-    byte[] encrypted=CryptoUtils.encrypt(msg.getBytes(), key);
+    String msg="Secret message";
+
+    byte[] encrypted=CryptoUtils.encrypt(msg.getBytes(),key);
     byte[] decrypted=CryptoUtils.decrypt(encrypted, key);
-
+    
     System.out.println("Original message : "+msg);
-    System.out.println("Encrypted message : "+new String(encrypted));
+    System.out.println("Encrypted message : "+encrypted);
     System.out.println("Decrypted message : "+new String(decrypted));
 
 
