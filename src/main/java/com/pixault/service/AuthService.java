@@ -2,8 +2,10 @@ package com.pixault.service;
 
 import java.time.LocalDateTime;
 import com.pixault.dao.UserDAO;
+import com.pixault.auth.SessionManager;
 import com.pixault.dao.OTPDAO;
 import com.pixault.model.User;
+import com.pixault.security.PasswordUtil;
 import com.pixault.util.OTPUtil;
 
 public class AuthService {
@@ -29,5 +31,27 @@ public class AuthService {
     public boolean registerUSer(String email , String password){
         User user=new User(email, password);
         return userDAO.registerUser(user);
+    }
+
+    //login flow
+    public boolean loginStep1(String email,String password){
+        if(!userDAO.emailExists(email)){ return false; }
+        String storedHash=userDAO.getPasswordHash(email);
+
+        if(!PasswordUtil.verifyPassword(password, storedHash)){
+            return false;
+        }
+
+        //send OTP 
+        sendRegistrationOTP(email);
+        return true;
+    }
+
+    //OTP verification + session
+    public String loginStep2(String email , String otp){
+        if(otpDAO.verifyOTP(email, otp)){
+            return SessionManager.createSession(email);
+        }
+        return null;
     }
 }

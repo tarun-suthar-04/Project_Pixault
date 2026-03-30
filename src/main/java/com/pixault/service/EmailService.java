@@ -40,7 +40,7 @@ public class EmailService {
             msg.setSubject("Pixault OTP Verification");
             msg.setText("Your Pixault OTP is : " + otp);
             Transport.send(msg);
-            System.out.println("OTP send successfully");
+            System.out.println("OTP send successfully at "+toEmail);
         } catch (MessagingException e) {
             e.printStackTrace();
         }
