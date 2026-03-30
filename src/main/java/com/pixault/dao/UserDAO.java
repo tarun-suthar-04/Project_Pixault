@@ -69,4 +69,21 @@ public class UserDAO {
         return false;
 
     }
+
+    //getHashedPassword
+    public String getPasswordHash(String email){
+        String sql="SELECT password FROM users WHERE email=?";
+        
+        try(Connection conn=DatabaseConfig.getConnection();
+            PreparedStatement ps=conn.prepareStatement(sql)){
+                ps.setString(1,email);
+                ResultSet rs=ps.executeQuery();
+                if(rs.next()){
+                    return rs.getString("password");
+                }
+            }catch(Exception e){
+                e.printStackTrace();
+            }
+            return null;
+    }
 }
