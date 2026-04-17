@@ -125,7 +125,7 @@
                 <artifactId>javafx-maven-plugin</artifactId>
                 <version>0.0.8</version>
                 <configuration>
-                    <mainClass>com.pixault.AppLauncher</mainClass>
+                    <mainClass>com.pixault.App</mainClass>
                 </configuration>
             </plugin>
 
