@@ -3,6 +3,9 @@ target/
 # Local database/runtime files
 *.db
 
+#text file
+.txt
+
 # IDE metadata
 .classpath
 .project
@@ -14,3 +17,4 @@ target/
 Thumbs.db
 Desktop.ini
 src/main/resources/config.properties
+report.txt
