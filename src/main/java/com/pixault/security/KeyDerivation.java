@@ -19,7 +19,7 @@ public class KeyDerivation {
     }
 
     //Derive AES key from password + salt
-    public static SecretKey derievKey(String password , byte[] salt) throws Exception{
+    public static SecretKey deriveKey(String password , byte[] salt) throws Exception{
         PBEKeySpec spec=new PBEKeySpec(password.toCharArray(), salt ,ITERATIONS, KEY_LENGTH);
         SecretKeyFactory factory=SecretKeyFactory.getInstance("PBKDF2WithHmacSHA256");
 
