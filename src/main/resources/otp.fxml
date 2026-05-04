@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox spacing="10" alignment="CENTER" xmlns:fx="http//javafx.com/fxml" fx:controller="com.pixault.controller.OTPController" >
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20" />
+    </padding>
+    <Label text="Enter OTP" />
+    <TextField fx:id="otpField" promptText="Enter OTP" />
+    <Button text="Verify OTP" onAction="#handleVerify" />
+</VBox>
