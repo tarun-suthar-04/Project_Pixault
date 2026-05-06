@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insests?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox spacing="10" alignment="CENTER" xmlns:fx="http://javafx.com/fxml"
+    fx:controller="com.pixault.controller.VaultController">
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20" />
+    </padding>
+    <Label text="Pixault Vault" />
+    <TextField fx:id="dataField" promptText="Enter Secret Data" />
+    <PasswordField fx:id="passwordField" promptText="Enter Password" />
+    <Button text="Store Data" onAction="#handleStore" />
+    <Button text="Retrieve Data" onAction="#handleRetrieve" />
+    <Label fx:id="output Label" text="Output will appear here" />
+</VBox>
