@@ -1,0 +1,13 @@
+# Pixault Testing Payload
+# Purpose: Validation of AES-256-GCM and LSB Steganography Integrity
+
+This is a sample secure payload used to test the capacity and integrity of the Pixault steganography engine.
+The system must be able to:
+1. Encrypt this text using a password-derived key (Argon2id).
+2. Embed the ciphertext into the Least Significant Bits of a carrier image.
+3. Reconstruct the bit-map and decrypt the message without a single bit of loss.
+
+PAYLOAD DATA:
+"The quick brown fox jumps over the lazy dog. Security is not a product, but a process. 
+Zero-Trust Architecture is the foundation of the Pixault Secure Vault."
+EOF

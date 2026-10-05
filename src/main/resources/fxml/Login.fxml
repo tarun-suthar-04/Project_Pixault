@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.SVGPath?>
+
+<HBox xmlns:fx="http://javafx.com/fxml" fx:controller="com.pixault.ui.LoginController" styleClass="auth-root">
+    <!-- LEFT SIDE: Branding -->
+    <VBox alignment="CENTER" spacing="25" HBox.hgrow="ALWAYS" minWidth="500" styleClass="auth-branding-area">
+        <Label text="PIXAULT" styleClass="auth-logo"/>
+        
+        <Region styleClass="auth-divider-blue" maxWidth="150"/>
+        
+        <Label text="SECURE VAULT SYSTEM" styleClass="auth-subtitle"/>
+
+        <HBox spacing="15" alignment="CENTER" style="-fx-padding: 30 0 20 0;">
+            <VBox styleClass="auth-feature-card" spacing="12">
+                <SVGPath content="M 12.65 10 C 11.83 7.67 9.61 6 7 6 C 3.69 6 1 8.69 1 12 C 1 15.31 3.69 18 7 18 C 9.61 18 11.83 16.33 12.65 14 H 17 V 18 H 21 V 14 H 23 V 10 H 12.65 Z M 7 14 C 5.9 14 5 13.1 5 12 C 5 10.9 5.9 10 7 10 C 8.1 10 9 10.9 9 12 C 9 13.1 8.1 14 7 14 Z" styleClass="auth-feature-icon" scaleX="1.2" scaleY="1.2"/>
+                <Label text="ENCRYPT" styleClass="auth-feature-label"/>
+            </VBox>
+            <VBox styleClass="auth-feature-card" spacing="12">
+                <SVGPath content="M 12 1 L 3 5 V 11 C 3 16.55 6.84 21.74 12 23 C 17.16 21.74 21 16.55 21 11 V 5 L 12 1 Z M 19 11 C 19 15.52 16.14 19.68 12 20.93 C 7.86 19.68 5 15.52 5 11 V 6.3 L 12 3.19 L 19 6.3 V 11 Z M 12 10.99 H 19 C 18.52 14.47 15.7 17.37 12 18.5 V 10.99 H 5 V 6.3 L 12 3.19 V 10.99 Z" styleClass="auth-feature-icon" scaleX="1.2" scaleY="1.2"/>
+                <Label text="HIDE DATA" styleClass="auth-feature-label"/>
+            </VBox>
+            <VBox styleClass="auth-feature-card" spacing="12">
+                <SVGPath content="M 18 16.08 C 17.24 16.08 16.56 16.38 16.04 16.85 L 8.91 12.7 C 8.96 12.47 9 12.24 9 12 C 9 11.76 8.96 11.53 8.91 11.3 L 15.96 7.19 C 16.5 7.69 17.21 8 18 8 C 19.66 8 21 6.66 21 5 C 21 3.34 19.66 2 18 2 C 16.34 2 15 3.34 15 5 C 15 5.24 15.04 5.47 15.09 5.7 L 8.04 9.81 C 7.5 9.31 6.79 9 6 9 C 4.34 9 3 10.34 3 12 C 3 13.66 4.34 15 6 15 C 6.79 15 7.5 14.69 8.04 14.19 L 15.16 18.35 C 15.11 18.56 15.08 18.78 15.08 19 C 15.08 20.61 16.39 21.92 18 21.92 C 19.61 21.92 20.92 20.61 20.92 19 C 20.92 17.39 19.61 16.08 18 16.08 Z" styleClass="auth-feature-icon" scaleX="1.2" scaleY="1.2"/>
+                <Label text="SHARE" styleClass="auth-feature-label"/>
+            </VBox>
+            <VBox styleClass="auth-feature-card" spacing="12">
+                <SVGPath content="M 11.99 2 C 6.47 2 2 6.48 2 12 C 2 17.52 6.47 22 11.99 22 C 17.52 22 22 17.52 22 12 C 22 6.48 17.52 2 11.99 2 Z M 12 20 C 7.58 20 4 16.42 4 12 C 4 7.58 7.58 4 12 4 C 16.42 4 20 7.58 20 12 C 20 16.42 16.42 20 12 20 Z M 12.5 7 H 11 V 13 L 16.25 16.15 L 17 14.92 L 12.5 12.25 V 7 Z" styleClass="auth-feature-icon" scaleX="1.2" scaleY="1.2"/>
+                <Label text="AUDIT" styleClass="auth-feature-label"/>
+            </VBox>
+        </HBox>
+
+        <Label text="ENTERPRISE-GRADE STEGANOGRAPHY • AES-256-GCM • ARGON2ID • HMAC-SHA256 • MFA" styleClass="auth-footer-text" style="-fx-font-size: 10px;"/>
+
+        <HBox spacing="15" alignment="CENTER" style="-fx-padding: 10 0 30 0;">
+            <HBox styleClass="auth-badge" spacing="8">
+                <SVGPath content="M12 17c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm6-9h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM8.9 6c0-1.71 1.39-3.1 3.1-3.1s3.1 1.39 3.1 3.1v2H8.9V6z" styleClass="auth-badge-icon"/>
+                <Label text="SECURE" styleClass="auth-badge-label"/>
+            </HBox>
+            <HBox styleClass="auth-badge" spacing="8">
+                <SVGPath content="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z" styleClass="auth-badge-icon"/>
+                <Label text="PRIVATE" styleClass="auth-badge-label"/>
+            </HBox>
+            <HBox styleClass="auth-badge" spacing="8">
+                <SVGPath content="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z" styleClass="auth-badge-icon"/>
+                <Label text="ENCRYPTED" styleClass="auth-badge-label"/>
+            </HBox>
+            <HBox styleClass="auth-badge" spacing="8">
+                <SVGPath content="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22S22 17.52 22 12 17.52 2 12 2ZM13 17H11V15H13V17ZM13 13H11V7H13V13Z" styleClass="auth-badge-icon"/>
+                <Label text="AUDITABLE" styleClass="auth-badge-label"/>
+            </HBox>
+        </HBox>
+        
+        <Region VBox.vgrow="ALWAYS" />
+        
+        <HBox alignment="BOTTOM_CENTER">
+            <Label text="© PIXAULT SECURE VAULT" styleClass="auth-footer-text"/>
+            <Region HBox.hgrow="ALWAYS" />
+            <Label text="v1.0" styleClass="auth-footer-text"/>
+        </HBox>
+    </VBox>
+
+    <!-- RIGHT SIDE: Authentication Panel -->
+    <VBox alignment="CENTER" spacing="0" HBox.hgrow="ALWAYS" minWidth="450" styleClass="auth-form-area">
+        <VBox spacing="30" styleClass="auth-card" maxWidth="480">
+            <VBox spacing="15" alignment="CENTER">
+                <Label text="LOGIN" styleClass="auth-heading"/>
+                <Region styleClass="auth-divider-blue" maxWidth="60"/>
+            </VBox>
+            
+            <VBox spacing="20">
+                <VBox spacing="8">
+                     <Label text="USERNAME" styleClass="auth-label"/>
+                     <HBox styleClass="auth-input-container" style="-fx-pref-height: 50px;" spacing="10">
+                         <SVGPath content="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" fill="#6B7280"/>
+                         <TextField fx:id="usernameField" promptText="Enter your username" styleClass="auth-input" HBox.hgrow="ALWAYS"/>
+                     </HBox>
+                </VBox>
+                
+                <VBox spacing="8">
+                     <Label text="PASSWORD / OTP" styleClass="auth-label"/>
+                     <HBox styleClass="auth-input-container" style="-fx-pref-height: 50px;" spacing="10">
+                         <SVGPath content="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6zm9 14H6V10h12v10zm-6-3c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z" fill="#6B7280"/>
+                         <PasswordField fx:id="passwordField" promptText="Enter your password" styleClass="auth-input" HBox.hgrow="ALWAYS"/>
+                     </HBox>
+                </VBox>
+            </VBox>
+            
+            <HBox alignment="CENTER_LEFT" spacing="12">
+                <Hyperlink fx:id="forgotPasswordLink" text="FORGOT PASSWORD?" onAction="#onForgotPassword" styleClass="auth-link" style="-fx-font-size: 12px;"/>
+            </HBox>
+            
+            <Label fx:id="statusLabel" wrapText="true" maxWidth="400" alignment="CENTER" textAlignment="CENTER" style="-fx-font-family: 'Google Sans Medium'; -fx-text-fill: #E53E3E;"/>
+            
+            <Button fx:id="loginBtn" text="SIGN IN TO VAULT" onAction="#onLogin" styleClass="auth-btn-primary" maxWidth="Infinity" style="-fx-pref-height: 55px;"/>
+            
+            <Separator styleClass="auth-card-divider" />
+            
+            <HBox alignment="CENTER" spacing="8">
+                <Label text="NEW HERE?" style="-fx-font-family: 'Google Sans Medium'; -fx-font-size: 13px; -fx-text-fill: #6B7280;"/>
+                <Hyperlink fx:id="registerLink" text="CREATE AN ACCOUNT" onAction="#onRegister" styleClass="auth-link" style="-fx-font-size: 13px;"/>
+            </HBox>
+        </VBox>
+    </VBox>
+</HBox>

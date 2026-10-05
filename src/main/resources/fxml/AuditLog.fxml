@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.SVGPath?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.pixault.ui.AuditLogController"
+            styleClass="auth-root">
+
+    <!-- ===================== TOP HEADER BAR ===================== -->
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="12" styleClass="wf-header">
+
+            <!-- LEFT: nav pills -->
+            <Button text="&lt;- BACK" onAction="#onDashboard" styleClass="wf-nav-btn"/>
+            <HBox styleClass="wf-nav-active-pill" alignment="CENTER" spacing="8">
+                <SVGPath content="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zM7 10h2v7H7zm4-3h2v10h-2zm4 6h2v4h-2z"
+                       fill="#2563FF" scaleX="0.85" scaleY="0.85"/>
+                <Label text="AUDIT LOG" styleClass="wf-nav-active-text"/>
+            </HBox>
+
+            <Region HBox.hgrow="ALWAYS"/>
+
+            <!-- RIGHT: search + refresh -->
+            <HBox styleClass="audit-search-box" alignment="CENTER_LEFT" spacing="10">
+                <SVGPath content="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
+                       styleClass="audit-search-icon" scaleX="0.85" scaleY="0.85"/>
+                <TextField fx:id="searchField" promptText="Search events…"
+                           styleClass="audit-search-field" prefWidth="240"
+                           style="-fx-background-color: transparent; -fx-border-width: 0;"/>
+            </HBox>
+            <Button text="REFRESH" onAction="#onRefresh" styleClass="wf-nav-btn"/>
+        </HBox>
+    </top>
+
+    <!-- ===================== CONTENT ===================== -->
+    <center>
+        <VBox spacing="0" styleClass="content-root">
+            <padding><Insets top="24" right="32" bottom="28" left="32"/></padding>
+
+            <!-- HERO HEADER ROW: icon + title + subtitle -->
+            <HBox alignment="CENTER_LEFT" spacing="18">
+                <VBox alignment="CENTER" styleClass="wf-icon-box"
+                      minWidth="64" minHeight="64" maxWidth="64" maxHeight="64">
+                    <SVGPath content="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zM7 10h2v7H7zm4-3h2v10h-2zm4 6h2v4h-2z"
+                           fill="#2563FF" scaleX="1.5" scaleY="1.5"/>
+                </VBox>
+                <VBox spacing="4">
+                    <Label text="SECURITY EVENT LOG" styleClass="heading"/>
+                    <Label fx:id="statusLabel" text="Loading events…" styleClass="subheading"/>
+                </VBox>
+            </HBox>
+
+            <Region minHeight="18" maxHeight="18"/>
+
+            <!-- AUDIT TABLE CARD -->
+            <VBox styleClass="audit-table-card" VBox.vgrow="ALWAYS">
+                <TableView fx:id="auditTable" VBox.vgrow="ALWAYS"
+                           maxWidth="Infinity"
+                           styleClass="audit-table">
+                    <columns>
+                        <TableColumn fx:id="colTimestamp" text="TIMESTAMP"  resizable="false" prefWidth="180"/>
+                        <TableColumn fx:id="colEvent"     text="EVENT TYPE" resizable="false" prefWidth="180"/>
+                        <TableColumn fx:id="colDevice"    text="DEVICE"     resizable="false" prefWidth="140"/>
+                        <TableColumn fx:id="colDetails"   text="DETAILS"    resizable="false" prefWidth="300"/>
+                    </columns>
+                    <placeholder>
+                        <Label text="No audit events recorded."
+                               style="-fx-font-family: 'Google Sans Medium'; -fx-font-size: 14px; -fx-text-fill: #6B7280;"/>
+                    </placeholder>
+                </TableView>
+            </VBox>
+
+        </VBox>
+    </center>
+</BorderPane>

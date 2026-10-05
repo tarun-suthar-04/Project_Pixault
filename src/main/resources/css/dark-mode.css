@@ -1,0 +1,231 @@
+/* Pixault Premium Dark Mode Theme */
+
+.root {
+    -fx-background-color: #030712; /* Extreme dark blue/black */
+}
+
+/* Background surfaces & Panels */
+.dash-header, .wf-header, .auth-card, .dash-card, .panel, .table-view, 
+.wf-title-pill, .wf-subtitle-pill, .dash-title-pill, .dash-subtitle-pill, 
+.dash-logout-btn, .wf-nav-btn, .wf-nav-active-pill, .auth-input-container,
+.audit-table-card, .settings-card, .wf-card, .dash-logo-pill {
+    -fx-background-color: #0F172A; /* Slate 900 */
+    -fx-border-color: #1E293B;     /* Slate 800 */
+}
+
+/* Background surfaces */
+.content-root, .wf-scroll-pane, .wf-scroll-pane > .viewport {
+    -fx-background-color: #030712;
+}
+
+/* ScrollPane background fix */
+.scroll-pane, .scroll-pane > .viewport {
+    -fx-background-color: #030712;
+}
+
+/* Action containers */
+.VBox, .HBox {
+    /* Ensure containers don't have hardcoded white backgrounds in dark mode */
+}
+
+/* Primary text */
+.dash-logo-text, .dash-title-text, .dash-subtitle-text, .wf-title-text, 
+.wf-subtitle-text, .dash-meta-label, .dash-footer-label, .auth-footer-text, 
+.label, .heading, .wf-section-title, .wf-step-badge-text, .wf-nav-btn {
+    -fx-text-fill: #F8FAFC; /* Slate 50 */
+}
+
+/* Secondary text */
+.dash-card-desc, .dash-meta-sep, .dash-footer-sep, .subheading, .wf-helper-text {
+    -fx-text-fill: #ffffff; /* Slate 400 */
+}
+
+/* Special accents & Links */
+.dash-card-title, .wf-nav-active-text, .auth-link, .hyperlink {
+    -fx-text-fill: #fbfeff; /* Sky 400 */
+}
+
+.dash-icon-box, .wf-icon-box {
+    -fx-background-color: #1E293B;
+    -fx-effect: innershadow(three-pass-box, rgba(0, 0, 0, 0.4), 8, 0, 0, 3);
+}
+
+/* Progress Indicator */
+.progress-indicator {
+    -fx-progress-color: #38BDF8;
+}
+
+/* Icons */
+.SVGPath {
+    /* If not overridden by specific classes, default to sky blue in dark mode */
+    -fx-fill: #38BDF8;
+}
+
+.theme-toggle-icon {
+    -fx-fill: #ffffff;
+}
+
+/* Inputs */
+.text-field, .password-field, .text-area, .auth-input, .wf-textarea {
+    -fx-background-color: #1E293B;
+    -fx-text-fill: #F8FAFC;
+    -fx-border-color: #334155;
+    -fx-prompt-text-fill: #64748B;
+}
+
+.text-field:focused, .password-field:focused, .text-area:focused {
+    -fx-border-color: #38BDF8;
+    -fx-background-color: #0F172A;
+}
+
+/* Table overrides */
+.table-view, .audit-table {
+    -fx-background-color: #0F172A;
+    -fx-border-color: #1E293B;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #1E293B;
+}
+
+.table-view .column-header {
+    -fx-background-color: transparent;
+    -fx-border-color: #334155;
+}
+
+.table-row-cell {
+    -fx-background-color: #0F172A;
+    -fx-border-color: #1E293B;
+    -fx-text-fill: #F8FAFC;
+}
+.table-cell{
+    -fx-text-fill: #F8FAFC;
+    -fx-border-color: #1E293B;
+}
+.table-row-cell:odd {
+    -fx-background-color: #111827;
+}
+
+
+/* Interactive row states */
+.table-row-cell:hover, .audit-table .table-row-cell:hover {
+    -fx-background-color: #1E293B !important;
+    -fx-cursor: hand;
+}
+
+.table-row-cell:hover .table-cell, .audit-table .table-row-cell:hover .table-cell {
+    -fx-text-fill: #38BDF8 !important;
+}
+
+.table-row-cell:selected, .audit-table .table-row-cell:selected {
+    -fx-background-color: #334155;
+}
+
+.table-row-cell:selected .table-cell, .audit-table .table-row-cell:selected .table-cell {
+    -fx-text-fill: #38BDF8;
+}
+
+.table-view .column-header .label, .audit-table .column-header .label {
+    -fx-text-fill: #94A3B8;
+}
+
+/* Neumorphic shadow overrides for dark mode */
+.dash-card:hover {
+    -fx-effect: dropshadow(three-pass-box, rgba(56, 189, 248, 0.3), 28, 0, 0, 12);
+    -fx-border-color: #38BDF8;
+}
+
+.auth-card {
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.7), 40, 0, 0, 20);
+}
+
+.dash-title-pill, .wf-title-pill {
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.5), 20, 0, 0, 8);
+}
+
+/* Primary buttons */
+.primary-button, .wf-primary-btn, .auth-btn-primary {
+    -fx-background-color: linear-gradient(to bottom right, #0EA5E9, #2563EB);
+    -fx-text-fill: #FFFFFF;
+    -fx-border-color: transparent;
+}
+
+.primary-button:hover, .wf-primary-btn:hover, .auth-btn-primary:hover {
+    -fx-background-color: linear-gradient(to bottom right, #38BDF8, #3B82F6);
+    -fx-effect: dropshadow(three-pass-box, rgba(56, 189, 248, 0.4), 15, 0, 0, 6);
+}
+
+/* Skeleton Screens */
+.skeleton {
+    -fx-background-color: linear-gradient(to right, #1E293B 8%, #334155 18%, #1E293B 33%);
+}
+
+.loading-overlay {
+    -fx-background-color: rgba(3, 7, 18, 0.8);
+}
+.auth-label { -fx-text-fill: #F8FAFC; } 
+.auth-card-divider { -fx-border-color: #334155; } 
+.auth-branding-area, .auth-form-area, .auth-root { -fx-background-color: #030712; } 
+.wf-divider { -fx-border-color: #334155; }
+
+/* Audit Search Box */
+.audit-search-box {
+    -fx-background-color: #1E293B;
+    -fx-border-color: #334155;
+}
+.audit-search-field {
+    -fx-text-fill: #F8FAFC;
+    -fx-prompt-text-fill: #64748B;
+}
+.audit-table .column-header-background, .audit-table .filler {
+    -fx-background-color: #1E293B;
+    -fx-background-radius: 15px 15px 0 0;
+}
+.audit-table .column-header {
+    -fx-border-color: #334155;
+    -fx-background-color: transparent;
+}
+.audit-table .table-row-cell {
+    -fx-background-color: #0F172A;
+    -fx-border-color: #1E293B;
+}
+.audit-table .table-row-cell:odd {
+    -fx-background-color: #111827;
+}
+.audit-table .table-cell {
+    -fx-text-fill: #F8FAFC;
+    -fx-border-color: #1E293B;
+}
+
+/* Fix corner artifacts */
+.audit-table {
+    -fx-background-color: transparent;
+    -fx-background-radius: 15px;
+}
+.audit-table .corner {
+    -fx-background-color: transparent;
+}
+
+/* Ensure navigation buttons have white text and correct background */
+.wf-nav-btn, .wf-nav-active-pill, .dash-logout-btn {
+    -fx-background-color: #1E293B;
+    -fx-text-fill: #F8FAFC;
+    -fx-border-color: #334155;
+}
+
+.wf-nav-btn:hover, .dash-logout-btn:hover, .wf-browse-btn:hover, .wf-share-action-btn:hover, .wf-copy-btn:hover {
+    -fx-background-color: #334155;
+    -fx-border-color: #38BDF8;
+    -fx-text-fill: #38BDF8;
+}
+
+/* Secondary Action Buttons */
+.wf-browse-btn, .wf-share-action-btn, .wf-copy-btn {
+    -fx-background-color: #1E293B;
+    -fx-border-color: #334155;
+    -fx-text-fill: #38BDF8;
+}
+.VBox, .HBox, .StackPane, .BorderPane { -fx-background-color: transparent; }
+.audit-search-icon { -fx-fill: #94A3B8; }
+.audit-table-card { -fx-background-radius: 15px; -fx-border-radius: 15px; } .audit-table .virtual-flow { -fx-background-radius: 0 0 15px 15px; } .audit-table .column-header-background { -fx-background-radius: 15px 15px 0 0; }
+.auth-badge, .auth-feature-card { -fx-background-color: #0F172A; -fx-border-color: #1E293B; } .auth-badge-label, .auth-feature-label { -fx-text-fill: #F8FAFC; } .auth-feature-icon, .auth-badge-icon { -fx-fill: #38BDF8; }

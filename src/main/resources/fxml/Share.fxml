@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.SVGPath?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.pixault.ui.ShareController"
+            styleClass="auth-root">
+
+    <!-- ===================== TOP HEADER BAR ===================== -->
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="12" styleClass="wf-header">
+            <Button text="&lt;- BACK" onAction="#onDashboard" styleClass="wf-nav-btn"/>
+            <HBox styleClass="wf-nav-active-pill" alignment="CENTER" spacing="8">
+                <SVGPath content="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92-1.31-2.92-2.92-2.92z"
+                       fill="#2563FF" scaleX="0.85" scaleY="0.85"/>
+                <Label text="SHARE VAULT" styleClass="wf-nav-active-text"/>
+            </HBox>
+        </HBox>
+    </top>
+
+    <!-- ===================== CONTENT ===================== -->
+    <center>
+        <ScrollPane fitToWidth="true" styleClass="wf-scroll-pane">
+            <VBox alignment="TOP_CENTER" spacing="0"
+                  styleClass="content-root">
+                <padding><Insets top="28" right="36" bottom="36" left="36"/></padding>
+
+                <!-- ===== HERO SECTION (centered, matches HideData/Extract layout) ===== -->
+                <VBox alignment="CENTER" spacing="12">
+                    <HBox alignment="CENTER">
+                        <VBox alignment="CENTER" styleClass="wf-title-pill">
+                            <Label text="ONE-TIME SECURE SHARE" styleClass="wf-title-text"/>
+                        </VBox>
+                    </HBox>
+                    <HBox alignment="CENTER">
+                        <VBox alignment="CENTER" styleClass="wf-subtitle-pill">
+                            <Label text="Create a time-limited one-time share link for a stego image."
+                                   styleClass="wf-subtitle-text"/>
+                        </VBox>
+                    </HBox>
+                </VBox>
+
+                <Region minHeight="22" maxHeight="22"/>
+
+                <!-- ===== 2-COLUMN GRID ===== -->
+                <HBox spacing="18" alignment="TOP_CENTER">
+
+                    <!-- ========== LEFT COLUMN ========== -->
+                    <VBox spacing="16" HBox.hgrow="ALWAYS">
+
+                        <!-- STEP 1: SELECT IMAGE TO SHARE -->
+                        <HBox styleClass="wf-card" spacing="18" alignment="TOP_LEFT">
+                            <VBox alignment="CENTER" styleClass="wf-icon-box"
+                                  minWidth="72" minHeight="72">
+                                <SVGPath content="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"
+                                       fill="#2563FF" scaleX="1.6" scaleY="1.6"/>
+                            </VBox>
+                            <VBox spacing="12" HBox.hgrow="ALWAYS">
+                                <HBox alignment="CENTER_LEFT" spacing="12">
+                                    <VBox alignment="CENTER" styleClass="wf-step-badge"
+                                          minWidth="28" minHeight="28">
+                                        <Label text="1" styleClass="wf-step-badge-text"/>
+                                    </VBox>
+                                    <Label text="SELECT IMAGE TO SHARE" styleClass="wf-section-title"/>
+                                </HBox>
+                                <Region styleClass="wf-blue-divider" maxWidth="Infinity"
+                                        minHeight="2" maxHeight="2"/>
+                                <HBox alignment="CENTER_LEFT" spacing="16">
+                                    <Button text="BROWSE" onAction="#onSelectBlob"
+                                            styleClass="wf-browse-btn"/>
+                                    <Label fx:id="selectedBlobLabel" text="No file selected"
+                                           styleClass="wf-helper-text"/>
+                                </HBox>
+                                <Label text="Supported formats: PNG" styleClass="wf-helper-text"/>
+                            </VBox>
+                        </HBox>
+
+                        <!-- STEP 2: SHARE LINK SETTINGS -->
+                        <HBox styleClass="wf-card" spacing="18" alignment="TOP_LEFT">
+                            <VBox alignment="CENTER" styleClass="wf-icon-box"
+                                  minWidth="72" minHeight="72">
+                                <SVGPath content="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"
+                                       fill="#2563FF" scaleX="1.6" scaleY="1.6"/>
+                            </VBox>
+                            <VBox spacing="14" HBox.hgrow="ALWAYS">
+                                <HBox alignment="CENTER_LEFT" spacing="12">
+                                    <VBox alignment="CENTER" styleClass="wf-step-badge"
+                                          minWidth="28" minHeight="28">
+                                        <Label text="2" styleClass="wf-step-badge-text"/>
+                                    </VBox>
+                                    <Label text="SHARE LINK SETTINGS" styleClass="wf-section-title"/>
+                                </HBox>
+                                <Region styleClass="wf-blue-divider" maxWidth="Infinity"
+                                        minHeight="2" maxHeight="2"/>
+
+                                <!-- LINK EXPIRY -->
+                                <VBox spacing="6">
+                                    <Label text="LINK EXPIRY (MINUTES)" styleClass="auth-label"/>
+                                    <TextField fx:id="ttlField" text="60" styleClass="auth-input"/>
+                                </VBox>
+
+                                <!-- STEGO PASSWORD -->
+                                <VBox spacing="6">
+                                    <Label text="STEGO DECRYPTION PASSWORD" styleClass="auth-label"/>
+                                    <HBox styleClass="auth-input-container"
+                                          style="-fx-pref-height: 46px;" spacing="10"
+                                          alignment="CENTER_LEFT">
+                                        <SVGPath content="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9V6z"
+                                               fill="#6B7280" scaleX="0.85" scaleY="0.85"/>
+                                        <PasswordField fx:id="sharePasswordField"
+                                                      promptText="Password used to hide data"
+                                                      styleClass="auth-input" HBox.hgrow="ALWAYS"/>
+                                        <SVGPath content="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"
+                                               fill="#6B7280" scaleX="0.85" scaleY="0.85"/>
+                                    </HBox>
+                                </VBox>
+
+                                <!-- Status + Generate button -->
+                                <Label fx:id="statusLabel" wrapText="true" maxWidth="Infinity"
+                                       style="-fx-font-family: 'Google Sans Medium'; -fx-font-size: 13px; -fx-text-fill: #E53E3E;"/>
+                                <Button fx:id="createShareBtn" text="GENERATE SHARE LINK"
+                                        onAction="#onCreateShare"
+                                        styleClass="wf-primary-btn"
+                                        maxWidth="Infinity"
+                                        style="-fx-pref-height: 52px;"/>
+                            </VBox>
+                        </HBox>
+
+                    </VBox>
+
+                    <!-- ========== RIGHT COLUMN ========== -->
+                    <VBox spacing="16" HBox.hgrow="ALWAYS">
+
+                        <!-- SHARE LINK RESULT -->
+                        <HBox styleClass="wf-card" spacing="18" alignment="TOP_LEFT">
+                            <VBox alignment="CENTER" styleClass="wf-icon-box"
+                                  minWidth="72" minHeight="72">
+                                <SVGPath content="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"
+                                       fill="#2563FF" scaleX="1.6" scaleY="1.6"/>
+                            </VBox>
+                            <VBox spacing="14" HBox.hgrow="ALWAYS">
+                                <Label text="SHARE LINK" styleClass="wf-section-title"/>
+                                <Region styleClass="wf-blue-divider" maxWidth="Infinity"
+                                        minHeight="2" maxHeight="2"/>
+                                <TextField fx:id="generatedLinkField"
+                                           promptText="Share link will appear here"
+                                           styleClass="auth-input"
+                                           editable="false"/>
+                                <!-- COPY + OPEN buttons -->
+                                <HBox alignment="CENTER_RIGHT" spacing="10">
+                                    <Button fx:id="copyLinkBtn" text="COPY"
+                                            onAction="#onCopyLink" styleClass="wf-share-action-btn"/>
+                                    <Button fx:id="openLinkBtn" text="OPEN"
+                                            onAction="#onOpenLink" styleClass="wf-share-action-btn"/>
+                                </HBox>
+                            </VBox>
+                        </HBox>
+
+                        <!-- YOUR SHARES TABLE -->
+                        <HBox styleClass="wf-card" spacing="18" alignment="TOP_LEFT"
+                              VBox.vgrow="ALWAYS">
+                            <VBox alignment="TOP_CENTER" styleClass="wf-icon-box"
+                                  minWidth="72" minHeight="72">
+                                <SVGPath content="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z"
+                                       fill="#2563FF" scaleX="1.6" scaleY="1.6"/>
+                            </VBox>
+                            <VBox spacing="14" HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS">
+                                <Label text="YOUR SHARES" styleClass="wf-section-title"/>
+                                <Region styleClass="wf-blue-divider" maxWidth="Infinity"
+                                        minHeight="2" maxHeight="2"/>
+                                <TableView fx:id="sharesTable" VBox.vgrow="ALWAYS"
+                                           prefHeight="200" maxWidth="Infinity"
+                                           styleClass="table-view">
+                                    <columns>
+                                        <TableColumn fx:id="colId" text="SHARE ID" prefWidth="160"/>
+                                        <TableColumn fx:id="colExpiry" text="EXPIRES AT" prefWidth="200"/>
+                                        <TableColumn fx:id="colConsumed" text="CONSUMED" prefWidth="120"/>
+                                    </columns>
+                                    <placeholder>
+                                        <Label text="No shares created yet."
+                                               style="-fx-font-family: 'Google Sans Medium'; -fx-font-size: 13px; -fx-text-fill: #6B7280;"/>
+                                    </placeholder>
+                                </TableView>
+                            </VBox>
+                        </HBox>
+
+                    </VBox>
+
+                </HBox>
+            </VBox>
+        </ScrollPane>
+    </center>
+</BorderPane>

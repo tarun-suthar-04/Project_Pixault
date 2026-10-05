@@ -1,0 +1,8 @@
+Project Pixault Test Data
+
+Username: test_user_01
+Password: MySecretPass123
+Email: testuser@example.com
+
+This message is hidden inside the image using steganography.
+If you can successfully extract this text, the encoding and decoding process works correctly.

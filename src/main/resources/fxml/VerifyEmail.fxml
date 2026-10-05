@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.SVGPath?>
+
+<HBox xmlns:fx="http://javafx.com/fxml" fx:controller="com.pixault.ui.VerifyEmailController" styleClass="auth-root">
+    <!-- LEFT SIDE: Branding -->
+    <VBox alignment="CENTER" spacing="25" HBox.hgrow="ALWAYS" minWidth="500" styleClass="auth-branding-area">
+        <Label text="PIXAULT" styleClass="auth-logo"/>
+        <Region styleClass="auth-divider-blue" maxWidth="150"/>
+        <Label text="IDENTITY VERIFICATION" styleClass="auth-subtitle"/>
+        
+        <VBox spacing="20" alignment="CENTER" style="-fx-padding: 40 60;">
+            <SVGPath content="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" 
+                     fill="#38BDF8" scaleX="3" scaleY="3" style="-fx-opacity: 0.8;"/>
+            <Label text="Your security is our priority." styleClass="auth-feature-label" style="-fx-font-size: 16px;"/>
+            <Label text="Please check your inbox for the 6-digit verification code." 
+                   wrapText="true" textAlignment="CENTER" styleClass="auth-footer-text" style="-fx-font-size: 13px; -fx-max-width: 300px;"/>
+        </VBox>
+
+        <Region VBox.vgrow="ALWAYS" />
+        <Label text="© PIXAULT SECURE VAULT" styleClass="auth-footer-text"/>
+    </VBox>
+
+    <!-- RIGHT SIDE: OTP Panel -->
+    <VBox alignment="CENTER" spacing="0" HBox.hgrow="ALWAYS" minWidth="450" styleClass="auth-form-area">
+        <VBox spacing="35" styleClass="auth-card" maxWidth="480">
+            <VBox spacing="15" alignment="CENTER">
+                <Label text="VERIFY EMAIL" styleClass="auth-heading"/>
+                <Region styleClass="auth-divider-blue" maxWidth="60"/>
+                <Label fx:id="emailLabel" text="Verification code sent to your email" style="-fx-text-fill: #94A3B8; -fx-font-size: 13px;"/>
+            </VBox>
+            
+            <VBox spacing="25">
+                <VBox spacing="10">
+                     <Label text="ENTER 6-DIGIT CODE" styleClass="auth-label"/>
+                     <HBox styleClass="auth-input-container" style="-fx-pref-height: 60px;" spacing="15" alignment="CENTER">
+                         <SVGPath content="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2z" fill="#38BDF8"/>
+                         <TextField fx:id="otpField" promptText="000000" styleClass="auth-input" 
+                                   style="-fx-font-size: 24px; -fx-alignment: center; -fx-letter-spacing: 8px;" HBox.hgrow="ALWAYS"/>
+                     </HBox>
+                </VBox>
+                
+                <Label fx:id="statusLabel" wrapText="true" alignment="CENTER" textAlignment="CENTER" 
+                       style="-fx-font-family: 'Google Sans Medium'; -fx-font-size: 13px; -fx-min-height: 40px;"/>
+                
+                <Button fx:id="verifyBtn" text="VERIFY &amp; ACTIVATE" onAction="#onVerify" styleClass="auth-btn-primary" 
+                        maxWidth="Infinity" style="-fx-pref-height: 55px;"/>
+            </VBox>
+            
+            <VBox spacing="15" alignment="CENTER">
+                <Hyperlink text="RESEND CODE" onAction="#onResend" styleClass="auth-link"/>
+                <Separator styleClass="auth-card-divider" maxWidth="200"/>
+                <Hyperlink text="BACK TO LOGIN" onAction="#onBackToLogin" styleClass="auth-link" style="-fx-opacity: 0.7;"/>
+            </VBox>
+        </VBox>
+    </VBox>
+</HBox>

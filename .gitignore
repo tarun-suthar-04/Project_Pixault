@@ -1,0 +1,36 @@
+# Build output
+target/
+temp-jmod/
+temp-runtime/
+*.class
+*.jar
+dependency-reduced-pom.xml
+
+# Local/private configuration
+config.local.properties
+config/*.local.properties
+*.env
+.env
+
+# Runtime-generated data
+share_messages/
+*.log
+logs/
+jstack_*.txt
+
+# IDE/workspace files
+.classpath
+.project
+.settings/
+.vscode/
+
+# OS files
+Thumbs.db
+desktop.ini
+
+# Packaged app/installers
+installer/
+dist/
+out/
+*.exe
+*.msi
