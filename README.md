@@ -1,7 +1,8 @@
-[![Architecture diagram](https://gitdiagram.com/diagram-badge.svg)](https://gitdiagram.com/tarun-suthar-04/project_pixault?utm_source=readme&utm_medium=badge)
 # Pixault Secure Vault
 
 Pixault is a JavaFX desktop vault for hiding encrypted messages inside images, authenticating users with OTP, tracking sessions, auditing security events, and creating one-time share links.
+[![Architecture diagram](https://gitdiagram.com/diagram-badge.svg)](https://gitdiagram.com/tarun-suthar-04/project_pixault?utm_source=readme&utm_medium=badge)
+[![Architecture diagram of tarun-suthar-04/project_pixault](https://gitdiagram.com/tarun-suthar-04/project_pixault/diagram.png)](https://gitdiagram.com/tarun-suthar-04/project_pixault?utm_source=readme&utm_medium=picture)
 
 ## Requirements
 
